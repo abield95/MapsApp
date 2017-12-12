@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">TraGua</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="welcome">Welcome</string>
+    <string name="language">Language</string>
+    <string name="ok">OK</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!--Strings for sideavigationview-->
+    <string name="change_languaje">Change Languaje</string>
+    <string name="Import">Salud</string>
+    <string name="gallery">Tienda</string>
+    <string name="slideshow">Publicos</string>
+    <string name="tools">Buffet</string>
+    <string name="communicate">Communicate</string>
+    <string name="share">Share</string>
+    <string name="send">Send</string>
+    <string name="settings">Settings</string>
+    <string name="title_registry">Registry</string>
+    <string name="firstname">First Name</string>
+    <string name="password">Password</string>
+    <string name="lastname">Last Name</string>
+    <string name="username">UserName</string>
+    <string name="correo">Email</string>
+    <string name="repeatpassword">Repeat Password</string>
+    <string name="login">Login</string>
+    <string name="registry">SingUp</string>
+    <string name="Markers">Markers</string>
+    <string name="Editprofile">Edit profile</string>
+    <string name="disco">Discoteca</string>
+    <string name="where_do_you_want_to_go">Where do you want to go</string>
+    <string name="travel">Travel</string>
+
+    <string name="dont_have_account">No Account yet?? Create One</string>
+
+    <string name="empty_username">Can\'t be empty</string>
+    <string name="password_incorrect">Wrong password or but insert</string>
+    <string name="authenticating">Authenticating</string>
+
+    <string name="place_name">Place Name</string>
+    <string name="exit">Exit</string>
+    <string name="trazar_ruta">Trace Route</string>
+    <string name="more_info">More Information</string>
+    <string name="go_to_maps">Go to Maps</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <!--Instructions and options for traveling-->
+    <string name="travel_text_message">There are some options for your travel, please ensure to select your correct options</string>
+    <string name="origin_place">Origin Place</string>
+    <string name="destiny_place">Destiny Place</string>
+    <string name="use_my_location">Use My Location</string>
+    <string name="type_of_vehicle">Select your choices for traveling</string>
+    <string name="my_own_car">My Own Car</string>
+    <string name="public_transport">Public Transport</string>
+
+</resources>

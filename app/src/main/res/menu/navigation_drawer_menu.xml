@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/maps_launcher"
+            android:title="@string/go_to_maps"
+            android:icon="@drawable/maps"/>
+        <item
+            android:id="@+id/nav_marker"
+            android:icon="@drawable/ic_menu_marcador"
+            android:title="@string/Markers"/>
+
+        <item
+            android:id="@+id/nav_where_do"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/travel" />
+
+    </group>
+
+
+    <item android:title="Settings">
+        <menu>
+            <item
+                android:id="@+id/edit_profile"
+                android:icon="@drawable/ic_menu_editar"
+                android:title="@string/Editprofile" />
+
+            <item android:id="@+id/change_languaje"
+                android:title="@string/change_languaje"
+                android:icon="@drawable/ic_menu_traduccion"/>
+        </menu>
+    </item>
+
+    <item android:title="Powered by Google"
+        android:icon="@drawable/common_google_signin_btn_icon_dark"/>
+
+</menu>

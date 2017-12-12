@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TraGua</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="language">Lenguaje</string>
+    <string name="ok">De Acuerdo</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="navigation_drawer_open">Abrir Panel de Navegacion</string>
+    <string name="navigation_drawer_close">Cerrar Panel de Navegacion</string>
+    <string name="action_settings">Configuracion</string>
+    <string name="title_activity_navigation_drawer">--</string>
+    <string name="change_languaje">Cambiar Idioma</string>
+    <string name="Import">Importar</string>
+    <string name="gallery">Galeria</string>
+    <string name="slideshow">SlideShow</string>
+    <string name="tools">Herramientas</string>
+    <string name="communicate">Comunicacion</string>
+    <string name="share">Compartir</string>
+    <string name="send">Enviar</string>
+    <string name="settings">Configuracion</string>
+    <string name="title_registry">Registro</string>
+    <string name="firstname">Primer Nombre</string>
+    <string name="password">Contraseña</string>
+    <string name="lastname">Apellido</string>
+    <string name="username">Nombre Usuario</string>
+    <string name="correo">Correo</string>
+    <string name="repeatpassword">Repetir Contraseña</string>
+    <string name="login">Login</string>
+    <string name="registry">SignUp</string>
+    <string name="Markers">Marcadores</string>
+    <string name="Editprofile">Editar Perfil</string>
+    <string name="where_do_you_want_to_go">A donde quieres ir</string>
+    <string name="dont_have_account">¿¿No tienes cuenta aún?? Crea una</string>
+    <string name="empty_username">No puede estar vacío</string>
+    <string name="password_incorrect">Contraseña incorrecta o insertada</string>
+    <string name="authenticating">Autenticando</string>
+    <string name="place_name">nombre del lugar</string>
+    <string name="exit">Salir</string>
+    <string name="trazar_ruta">Trazar Ruta</string>
+    <string name="more_info">Mas Informacion</string>
+    <string name="go_to_maps">Ir al Mapa</string>
+</resources>
