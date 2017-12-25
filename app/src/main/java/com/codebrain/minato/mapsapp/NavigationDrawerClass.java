@@ -135,8 +135,9 @@ public abstract class NavigationDrawerClass extends AppCompatActivity implements
             case R.id.nav_marker:
                 Toast.makeText(getApplicationContext(), "En desarrollo....", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.nav_where_do:
-                Toast.makeText(getApplicationContext(), "En desarrollo....", Toast.LENGTH_LONG).show();
+            case R.id.nav_travel:
+                Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
+                startActivityForResult(intent, 3000);
                 break;
             case R.id.edit_profile:
                 Toast.makeText(getApplicationContext(), "En desarrollo....", Toast.LENGTH_LONG).show();
