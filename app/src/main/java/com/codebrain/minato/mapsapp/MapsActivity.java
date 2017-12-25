@@ -2,6 +2,7 @@ package com.codebrain.minato.mapsapp;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.codebrain.minato.mapsapp.Dialogs.TravelDialog;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -64,6 +66,9 @@ public class MapsActivity extends NavigationDrawerClass {
     // Keys for storing activity state.
     private static final String KEY_CAMERA_POSITION = "camera_position";
     private static final String KEY_LOCATION = "location";
+
+    //used for intera-ctivity communication
+    private static final int TRAVEL_ACTIVITY = 2000;
 
     // Used for selecting the current place.
     private static final int M_MAX_ENTRIES = 5;
@@ -138,8 +143,10 @@ public class MapsActivity extends NavigationDrawerClass {
                             lastLocationClicked.remove();
                         }
 
-                        lastLocationClicked = addMarker(pointOfInterest.name, pointOfInterest.latLng,
-                                "Lat " + pointOfInterest.latLng.latitude + " long: " + pointOfInterest.latLng.longitude);
+//                        lastLocationClicked = addMarker(pointOfInterest.name, pointOfInterest.latLng,
+//                                "Lat " + pointOfInterest.latLng.latitude + " long: " + pointOfInterest.latLng.longitude, mMap);
+                        lastLocationClicked = BaseMapsClass.addMarker(pointOfInterest.name, pointOfInterest.latLng,
+                                "Lat " + pointOfInterest.latLng.latitude + " long: " + pointOfInterest.latLng.longitude, mMap);
                     }
                 });
 
@@ -154,12 +161,12 @@ public class MapsActivity extends NavigationDrawerClass {
             }
         });
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        TravelDialog travelDialog = new TravelDialog();
-        Bundle bundle = new Bundle();
-        bundle.putInt("layoutResID", R.layout.travel_dialog);
-        travelDialog.setArguments(bundle);
-        travelDialog.show(fragmentManager, "Travel Dialog");
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        TravelDialog travelDialog = new TravelDialog();
+//        Bundle bundle = new Bundle();
+//        bundle.putInt("layoutResID", R.layout.travel_dialog);
+//        travelDialog.setArguments(bundle);
+//        travelDialog.show(fragmentManager, "Travel Dialog");
     }
 
     /**
@@ -181,7 +188,7 @@ public class MapsActivity extends NavigationDrawerClass {
      * @param data And the data
      * @return
      */
-    protected Marker addMarker(String title, LatLng position, String data)
+    protected Marker addMarker(String title, LatLng position, String data, GoogleMap mMap)
     {
         if (mMap != null)
         {
@@ -423,6 +430,24 @@ public class MapsActivity extends NavigationDrawerClass {
             }
         } catch (SecurityException e)  {
             Log.e("Exception: %s", e.getMessage());
+        }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        switch (requestCode)
+        {
+            case TRAVEL_ACTIVITY:
+                if (resultCode == RESULT_OK)
+                {
+                }
+                else if (resultCode == RESULT_CANCELED)
+                {
+                    Toast.makeText(getApplicationContext(), "Canceled travel option", Toast.LENGTH_LONG).show();
+                }
+                break;
         }
     }
 
