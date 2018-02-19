@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#0f212121"
     style="@style/MyDialogTheme">
-    <include layout="@layout/personal_toolbar"/>
+    <include layout="@layout/personal_toolbar" android:id="@+id/personal_toolbar_main"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_below="@+id/personal_toolbar_main">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,7 +35,7 @@
                 android:id="@+id/travel_pick_origin"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/place_picker_png"
+                android:src="@drawable/ic_location_on_black_48dp"
                 android:minWidth="75dp"
                 android:minHeight="75dp"/>
         </LinearLayout>
@@ -58,7 +59,7 @@
                 android:id="@+id/travel_pick_destiny"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/place_picker_png"
+                android:src="@drawable/ic_location_on_black_48dp"
                 android:minWidth="75dp"
                 android:minHeight="75dp"/>
         </LinearLayout>
@@ -81,21 +82,22 @@
                 android:id="@+id/travel_public_transport_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/public_transport"
-                android:clickable="false"/>
+                android:text="@string/public_transport"/>
+            <TextView
+                android:id="@+id/travel_public_transport_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choices for the different type of transport will be seen"/>
         </LinearLayout>
-
-        <android.support.v7.widget.ButtonBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.v7.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/public_transport"/>
-            <android.support.v7.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/public_transport"/>
-        </android.support.v7.widget.ButtonBarLayout>
     </LinearLayout>
-</LinearLayout>
+    <android.support.v7.widget.ButtonBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal">
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/travel"/>
+    </android.support.v7.widget.ButtonBarLayout>
+</RelativeLayout>

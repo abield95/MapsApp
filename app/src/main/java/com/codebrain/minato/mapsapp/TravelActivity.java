@@ -7,8 +7,12 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TableLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -72,6 +76,57 @@ public class TravelActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PlacePickerActivity.class);
                 startActivityForResult(intent, PLACE_PICKER_REQUEST_DESTINY);
+            }
+        });
+
+        final TextView travelPublicTransportText = findViewById(R.id.travel_public_transport_text);
+        final CheckBox carCheckbox = findViewById(R.id.travel_own_car_checkbox);
+        final CheckBox publicCheckbox = findViewById(R.id.travel_public_transport_checkbox);
+        carCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                {
+                    if (publicCheckbox.isChecked())
+                    {
+                        publicCheckbox.setChecked(false);
+                    }
+                    if (travelPublicTransportText.getVisibility() == View.VISIBLE)
+                    {
+                        travelPublicTransportText.setVisibility(View.GONE);
+                    }
+                }
+                else
+                {
+                    if (!publicCheckbox.isChecked())
+                    {
+                        publicCheckbox.setChecked(true);
+                    }
+                }
+            }
+        });
+        publicCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if (isChecked)
+                {
+                    if (carCheckbox.isChecked())
+                    {
+                        carCheckbox.setChecked(false);
+                    }
+                    if (travelPublicTransportText.getVisibility() == View.GONE)
+                    {
+                        travelPublicTransportText.setVisibility(View.VISIBLE);
+                    }
+                }
+                else
+                {
+                    if (!carCheckbox.isChecked())
+                    {
+                        carCheckbox.setChecked(true);
+                    }
+                }
             }
         });
     }

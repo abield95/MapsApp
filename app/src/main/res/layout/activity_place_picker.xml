@@ -1,23 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0f212121">
+    android:background="#0f212121"
+    tools:context=".PlacePickerActivity">
 
-    <include layout="@layout/personal_toolbar"/>
+    <include layout="@layout/personal_toolbar" android:id="@+id/personal_toolbar_main"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_below="@+id/personal_toolbar_main">
+        <!--<include layout="@layout/maps_search_fragment"/>-->
+        <include layout="@layout/map_fragment"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+            <com.codebrain.minato.mapsapp.base_map_search.DelayAutoCompleteTextView
+                android:id="@+id/geo_autocomplete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="flagNoExtractUi|actionSearch"
+                android:inputType="textCapSentences"
+                android:textColor="@color/colorPrimary"
+                android:background="#FFFFFF"
+                android:hint="Search Place"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="55dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="4dp"
+                android:padding="10dp"
+                android:dropDownWidth="match_parent" />
+
+            <ImageView
+                android:id="@+id/geo_autocomplete_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_clear_black_48dp"
+                android:layout_gravity="center_vertical|end"
+                android:visibility="visible"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"/>
+        </FrameLayout>
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/confirm_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Confirm"/>
-
-        <include layout="@layout/map_fragment"/>
-    </LinearLayout>
-</LinearLayout>
+            android:text="Confirm"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+</RelativeLayout>
