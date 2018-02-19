@@ -3,7 +3,6 @@ package com.codebrain.minato.mapsapp;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.support.design.widget.NavigationView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 /**
  * Created by username on 12/6/2017.
@@ -36,7 +34,7 @@ public abstract class NavigationDrawerClass extends AppCompatActivity implements
         super.setContentView(R.layout.navigation_drawer_activity);// The base layout that contains your navigation drawer.
 
         //set the toolbar
-        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         try {
@@ -87,13 +85,20 @@ public abstract class NavigationDrawerClass extends AppCompatActivity implements
      */
     @Override
     public void setContentView(int layoutResID) {
-        if (view_stub != null) {
-            LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT);
-            View stubView = inflater.inflate(layoutResID, view_stub, false);
-            view_stub.addView(stubView, lp);
+        try
+        {
+            if (view_stub != null) {
+                LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+                ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT);
+                View stubView = inflater.inflate(layoutResID, view_stub, false);
+                view_stub.addView(stubView, lp);
+            }
+        }
+        catch (NullPointerException e)
+        {
+            Log.d("Exception", e.getMessage());
         }
     }
 
@@ -144,6 +149,10 @@ public abstract class NavigationDrawerClass extends AppCompatActivity implements
                 break;
             case R.id.change_languaje:
                 Toast.makeText(getApplicationContext(), "En desarrollo....", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.app_settings:
+                Intent intent1 = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(intent1);
                 break;
         }
         return false;
