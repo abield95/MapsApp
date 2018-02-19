@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+        <com.codebrain.minato.mapsapp.base_map_search.DelayAutoCompleteTextView
+            android:id="@+id/geo_autocomplete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="flagNoExtractUi|actionSearch"
+            android:inputType="textCapSentences"
+            android:textColor="@color/colorPrimary"
+            android:background="#FFFFFF"
+            android:hint="Search Place"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="55dp"
+            android:layout_marginRight="55dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="4dp"
+            android:padding="10dp"
+            android:dropDownWidth="match_parent" />
+
+        <ImageView
+            android:id="@+id/geo_autocomplete_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_clear_black_48dp"
+            android:layout_gravity="center_vertical|end"
+            android:visibility="visible"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"/>
+    </FrameLayout>
+</fragment>
