@@ -1,29 +1,25 @@
 package com.codebrain.minato.mapsapp;
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.codebrain.minato.mapsapp.base_map_search.DelayAutoCompleteTextView;
+import com.codebrain.minato.mapsapp.base_map_search.GeoAutoCompleteAdapter;
+import com.codebrain.minato.mapsapp.base_map_search.GeoSearchResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.location.places.AutocompleteFilter;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -67,20 +63,27 @@ public class PlacePickerActivity extends AppCompatActivity {//FragmentActivity i
         btnSetLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.putExtra("place_name", place.name);
-                intent.putExtra("place_id", place.placeId);
-                intent.putExtra("location_lat", place.latLng.latitude);//placeLocation.latitude);
-                intent.putExtra("location_lon", place.latLng.longitude);//placeLocation.longitude);
-                setResult(RESULT_OK, intent);
-                finish();
+                if (place != null)
+                {
+                    Intent intent = new Intent();
+                    intent.putExtra("place_name", place.name);
+                    intent.putExtra("place_id", place.placeId);
+                    intent.putExtra("location_lat", place.latLng.latitude);//placeLocation.latitude);
+                    intent.putExtra("location_lon", place.latLng.longitude);//placeLocation.longitude);
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "No hay sitio seleccionado", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
         //check google play services
         if (checkPlayServices())
         {
-            SupportMapFragment supportMapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
+            final SupportMapFragment supportMapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
 
             //getting GoogleMap object from the fragment
             supportMapFragment.getMapAsync(new OnMapReadyCallback() {
@@ -90,6 +93,7 @@ public class PlacePickerActivity extends AppCompatActivity {//FragmentActivity i
 
                     try {
                         mMap.setMyLocationEnabled(true);
+                        mMap.getUiSettings().setMyLocationButtonEnabled(true);
                     }
                     catch (SecurityException e)
                     {
@@ -118,6 +122,12 @@ public class PlacePickerActivity extends AppCompatActivity {//FragmentActivity i
                             place = new PointOfInterest(latLng, "Unknown id", "Unknown name");
                         }
                     });
+
+                    View locationButton = ((View)supportMapFragment.getView().findViewById(Integer.parseInt("1")).getParent()).findViewById(Integer.parseInt("2"));
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) locationButton.getLayoutParams();
+                    layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0);
+                    layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+                    layoutParams.setMargins(0,0,30,1260);
 
                     //get the current location
                 }
