@@ -1,4 +1,4 @@
-package com.codebrain.minato.mapsapp.BaseMapsSearch;
+package com.codebrain.minato.mapsapp.base_map_search;
 
 import android.location.Address;
 
