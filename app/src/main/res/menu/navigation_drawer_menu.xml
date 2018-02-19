@@ -31,6 +31,10 @@
             <item android:id="@+id/change_languaje"
                 android:title="@string/change_languaje"
                 android:icon="@drawable/ic_menu_traduccion"/>
+
+            <item android:id="@+id/app_settings"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="@string/action_settings"/>
         </menu>
     </item>
 
